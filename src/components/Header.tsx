@@ -10,7 +10,7 @@ import {
   ShieldCheck 
 } from "lucide-react";
 
-export type ActiveTab = "blueprints" | "simulator" | "resume" | "interview" | "advisor" | "github";
+export type ActiveTab = "app" | "simulator" | "advisor" | "github";
 
 interface HeaderProps {
   activeTab: ActiveTab;
@@ -31,15 +31,15 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onSelectTab, geminiCo
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-base font-bold tracking-tight text-white">
-                  FleetPulse & ML Stack
+                  FleetPulse AV Engine
                 </span>
                 <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-950/60 text-emerald-300 border border-emerald-800/60">
                   <Zap className="w-3.5 h-3.5 text-emerald-400" />
-                  Sub-6ms XGBoost + RAG
+                  Sub-6ms XGBoost + Vector RAG
                 </span>
               </div>
               <p className="text-xs text-slate-400 hidden sm:block">
-                Autonomous vehicle movement prediction & neuro-symbolic RAG
+                Predictive vehicle cut-in forecasting grounded by safety manuals & LLM copilot
               </p>
             </div>
           </div>
@@ -47,16 +47,16 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onSelectTab, geminiCo
           {/* Navigation Tabs */}
           <nav className="flex items-center gap-1 sm:gap-2">
             <button
-              id="tab-blueprints"
-              onClick={() => onSelectTab("blueprints")}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all ${
-                activeTab === "blueprints"
-                  ? "bg-slate-800 text-white shadow-sm border border-slate-700"
-                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-900"
+              id="tab-app"
+              onClick={() => onSelectTab("app")}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
+                activeTab === "app"
+                  ? "bg-emerald-600 text-white shadow-md shadow-emerald-950/50 border border-emerald-500"
+                  : "text-slate-300 hover:text-white hover:bg-slate-900 border border-transparent"
               }`}
             >
-              <Layers className="w-4 h-4 text-cyan-400" />
-              <span className="hidden md:inline">Top</span> Ideas
+              <Car className="w-4 h-4 text-emerald-300 animate-pulse" />
+              <span>FleetPulse App</span>
             </button>
 
             <button
@@ -64,38 +64,12 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onSelectTab, geminiCo
               onClick={() => onSelectTab("simulator")}
               className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all ${
                 activeTab === "simulator"
-                  ? "bg-emerald-950/60 text-emerald-300 border border-emerald-700/60 shadow-sm"
+                  ? "bg-slate-800 text-cyan-300 border border-cyan-800/80 shadow-sm"
                   : "text-slate-400 hover:text-slate-200 hover:bg-slate-900"
               }`}
             >
-              <Cpu className="w-4 h-4 text-emerald-400 animate-pulse" />
-              <span>Live Simulator</span>
-            </button>
-
-            <button
-              id="tab-resume"
-              onClick={() => onSelectTab("resume")}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all ${
-                activeTab === "resume"
-                  ? "bg-slate-800 text-white shadow-sm border border-slate-700"
-                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-900"
-              }`}
-            >
-              <FileText className="w-4 h-4 text-indigo-400" />
-              <span>Resume STAR</span>
-            </button>
-
-            <button
-              id="tab-interview"
-              onClick={() => onSelectTab("interview")}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all ${
-                activeTab === "interview"
-                  ? "bg-slate-800 text-white shadow-sm border border-slate-700"
-                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-900"
-              }`}
-            >
-              <HelpCircle className="w-4 h-4 text-amber-400" />
-              <span>Interview Q&A</span>
+              <Cpu className="w-4 h-4 text-cyan-400" />
+              <span>Pipeline Deep Dive</span>
             </button>
 
             <button
@@ -103,12 +77,12 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onSelectTab, geminiCo
               onClick={() => onSelectTab("advisor")}
               className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all ${
                 activeTab === "advisor"
-                  ? "bg-gradient-to-r from-cyan-950 to-indigo-950 text-cyan-200 border border-cyan-700/60 shadow-sm"
+                  ? "bg-slate-800 text-indigo-300 border border-indigo-700/60 shadow-sm"
                   : "text-slate-400 hover:text-slate-200 hover:bg-slate-900"
               }`}
             >
-              <Sparkles className="w-4 h-4 text-cyan-300" />
-              <span className="hidden sm:inline">AI</span> Advisor
+              <Sparkles className="w-4 h-4 text-indigo-300" />
+              <span>AI Copilot Advisor</span>
             </button>
 
             <button

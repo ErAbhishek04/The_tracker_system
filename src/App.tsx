@@ -5,17 +5,14 @@
 
 import React, { useState, useEffect } from "react";
 import { Header, ActiveTab } from "./components/Header";
-import { ProjectCards } from "./components/ProjectCards";
+import { FleetPulseDashboard } from "./components/FleetPulseDashboard";
 import { PipelineSimulator } from "./components/PipelineSimulator";
-import { ResumeBuilder } from "./components/ResumeBuilder";
-import { InterviewPrepView } from "./components/InterviewPrepView";
 import { AiProjectAdvisor } from "./components/AiProjectAdvisor";
 import { GitHubRepoViewer } from "./components/GitHubRepoViewer";
-import { ShieldCheck, Sparkles, Terminal, Car, Cpu, Database, Bot } from "lucide-react";
+import { Car, Cpu, Database, Bot, ShieldCheck } from "lucide-react";
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<ActiveTab>("blueprints");
-  const [activeProjectId, setActiveProjectId] = useState<string>("fleetpulse-autonomous-telemetry");
+  const [activeTab, setActiveTab] = useState<ActiveTab>("app");
   const [healthStatus, setHealthStatus] = useState<{ geminiConfigured: boolean } | null>(null);
 
   useEffect(() => {
@@ -24,16 +21,6 @@ export default function App() {
       .then((data) => setHealthStatus(data))
       .catch((err) => console.log("Health check note:", err));
   }, []);
-
-  const handleSelectForSimulation = (projectId: string) => {
-    setActiveProjectId(projectId);
-    setActiveTab("simulator");
-  };
-
-  const handleSelectForResume = (projectId: string) => {
-    setActiveProjectId(projectId);
-    setActiveTab("resume");
-  };
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-white flex flex-col">
@@ -46,23 +33,12 @@ export default function App() {
 
       {/* Main Content Body */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {activeTab === "blueprints" && (
-          <ProjectCards
-            onSelectForSimulation={handleSelectForSimulation}
-            onSelectForResume={handleSelectForResume}
-          />
+        {activeTab === "app" && (
+          <FleetPulseDashboard />
         )}
 
         {activeTab === "simulator" && (
           <PipelineSimulator initialScenarioId="highway-cut-in-braking" />
-        )}
-
-        {activeTab === "resume" && (
-          <ResumeBuilder initialProjectId={activeProjectId} />
-        )}
-
-        {activeTab === "interview" && (
-          <InterviewPrepView />
         )}
 
         {activeTab === "advisor" && (
@@ -80,24 +56,24 @@ export default function App() {
           <div className="flex items-center gap-2">
             <Car className="w-4 h-4 text-emerald-400" />
             <span className="font-semibold text-slate-400">
-              XGBoost + RAG + LLM Portfolio Blueprint
+              FleetPulse AV Perception & Decision System
             </span>
             <span className="text-slate-600">|</span>
-            <span>Edge Tabular Ingestion + Vector Search + Semantic Synthesis</span>
+            <span>Sub-6ms XGBoost + Vector RAG + Gemini Copilot</span>
           </div>
 
           <div className="flex items-center gap-4 text-slate-400">
             <span className="flex items-center gap-1">
               <Cpu className="w-3.5 h-3.5 text-emerald-400" />
-              Sub-10ms Edge ML
+              10Hz CAN-bus FIFO
             </span>
             <span className="flex items-center gap-1">
               <Database className="w-3.5 h-3.5 text-cyan-400" />
-              FAISS / ChromaDB RAG
+              NHTSA FMVSS 126 Vector RAG
             </span>
             <span className="flex items-center gap-1">
-              <Bot className="w-3.5 h-3.5 text-indigo-400" />
-              Gemini 3.8 Flash
+              <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
+              SAE J2735 V2X
             </span>
           </div>
         </div>
