@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fleetpulse-tracker"
+version = "1.0.0"
+description = "Autonomous Vehicle Trajectory & Cut-In Hazard Predictor (Sub-6ms XGBoost + Vector RAG + LLM)"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "ErAbhishek04", email = "takawaneabhishek04@gmail.com" }
+]
+classifiers = [
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Scientific/Engineering :: Autonomous Vehicles",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3"
+]
+
+[project.urls]
+Homepage = "https://github.com/ErAbhishek04/The_tracker"
+Repository = "https://github.com/ErAbhishek04/The_tracker"

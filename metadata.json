@@ -1,0 +1,6 @@
+{
+  "name": "XGBoost + RAG + LLM Project Architect",
+  "description": "Portfolio-grade real-world project blueprints and interactive pipeline simulator combining XGBoost tabular prediction, vector RAG, and LLM reasoning.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "fmvss-126-esc",
+    "title": "NHTSA FMVSS No. 126: Electronic Stability Control Systems",
+    "source": "49 CFR Part 571.126",
+    "tags": ["ESC", "lateral_accel", "yaw_rate", "stability", "spinout"],
+    "text": "Under NHTSA FMVSS 126, Electronic Stability Control (ESC) systems must intervene when yaw velocity deviation exceeds 35% of the driver's commanded angle at 1.00 second after completion of a sinusoidal steering maneuver. High lateral acceleration (>0.4g) with elevated yaw-rate divergence requires selective differential braking on the outer front wheel to counteract oversteer or inner rear wheel to counteract understeer."
+  },
+  {
+    "id": "fmvss-135-light-vehicle-brake",
+    "title": "NHTSA FMVSS No. 135: Light Vehicle Brake Systems & Emergency Deceleration",
+    "source": "49 CFR Part 571.135",
+    "tags": ["brake", "ttc_sec", "stopping_distance", "friction", "abs"],
+    "text": "FMVSS 135 mandates that in emergency braking scenarios from 100 km/h on dry asphalt (pavement friction coefficient mu >= 0.8), stopping distance must not exceed 65 meters with a mean fully developed deceleration (MFDD) of at least 6.43 m/s². On low friction surfaces (mu < 0.5), stopping distance triples; time-to-collision (TTC) thresholds under 1.8 seconds require automated emergency braking (AEB) pre-fill and driver haptic alert."
+  },
+  {
+    "id": "bosch-radar-gen6-spec",
+    "title": "Bosch Mid-Range & Long-Range Radar (Radar Gen6) Occlusion & Velocity Verification",
+    "source": "Bosch Mobility ADAS Hardware Manual Rev 4.2",
+    "tags": ["radar", "cut_in", "ttc_sec", "false_positive", "doppler"],
+    "text": "For rapid cut-in maneuvers where an adjacent vehicle enters the ego-path with lateral velocity vy > 1.2 m/s, forward radar returns may exhibit multi-path reflection or momentary Doppler velocity jitter. Cross-verification with camera optical flow is required. If TTC drops below 1.4 seconds with confirmed radar return track ID stability > 3 cycles, confidence exceeds 95% and emergency pre-braking must be triggered."
+  },
+  {
+    "id": "sae-j2735-v2x-bsm",
+    "title": "SAE J2735 Dedicated Short Range Communications (DSRC) & C-V2X Basic Safety Message (BSM)",
+    "source": "SAE International Standard J2735_202007",
+    "tags": ["v2x", "bsm", "broadcast", "cut_in", "hazard_announcement"],
+    "text": "SAE J2735 defines the Road Safety Message (RSM) and Emergency Vehicle Alert (EVA) broadcast packet payloads. When an ego vehicle detects an imminent collision or aggressive trajectory cut-in, Part II BSM data frame must broadcast DE_EventHazardWarning with EventCodes 0x0A (Hard Braking) and 0x14 (Cut-In Obstacle), including WGS84 GPS latitude/longitude, vehicle heading, and calculated deceleration rate to all surrounding connected vehicles within a 300m radius."
+  },
+  {
+    "id": "continental-lidar-calibration",
+    "title": "Continental HFL110 Solid-State 3D LiDAR Calibration & Azimuth Bounding",
+    "source": "Continental ADAS Engineering Reference v3",
+    "tags": ["lidar", "bounding_box", "azimuth", "calibration", "weather"],
+    "text": "LiDAR point cloud tracking degrades in heavy precipitation or spray (loss of up to 18% point density). When pavement friction estimates indicate wet road conditions (mu < 0.65), kinematic confidence bounds for adjacent object trajectories must be widened by 25%, and collision warning horizons must be shifted from 2.5 seconds to 3.5 seconds ahead."
+  }
+]
